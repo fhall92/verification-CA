@@ -94,22 +94,37 @@ public class Rate {
     public BigDecimal calculate(Period periodStay, CarParkKind kind) {
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
-        BigDecimal baseCost = ((this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
-                this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours))));
+        BigDecimal baseCost = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+        double base = baseCost.doubleValue();
         BigDecimal finalCost = null;
 
         //If Visitor
         if(kind == CarParkKind.VISITOR) {
-            BigDecimal visitorReduction = new BigDecimal(8);
-
             //If baseCost is less than 8, Cost is free
-            if ((baseCost.compareTo(visitorReduction) < 0) || (baseCost.compareTo(visitorReduction) == 0)) {
+            if (base <= 8) {
                 finalCost = new BigDecimal(0);
             }
 
             //Else, finalCost is reduced by 8 and 50% discount on the remainder
             else{
-                finalCost = baseCost.subtract(visitorReduction).divide(new BigDecimal(2));
+                finalCost = new BigDecimal((base - 8));
+                finalCost = finalCost.divide(new BigDecimal(2));
+                return finalCost;
+            }
+        }
+
+        //If Management
+        else if(kind == CarParkKind.MANAGEMENT){
+
+            if (baseCost.doubleValue() <= 3){
+                finalCost = new BigDecimal(3);
+                return finalCost;
+            }
+
+            else{
+                finalCost = baseCost;
+                return finalCost;
             }
         }
 

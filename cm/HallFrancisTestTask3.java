@@ -526,13 +526,13 @@ public class HallFrancisTestTask3 {
         normalP.add(periodA);
         reducedP.add(periodB);
         CarParkKind kind = CarParkKind.VISITOR;
-        BigDecimal normal = new BigDecimal(2);
-        BigDecimal reduced = new BigDecimal(1);
+        BigDecimal normal = new BigDecimal(3);
+        BigDecimal reduced = new BigDecimal(2);
 
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
-        Period periodStay = new Period(2,8);
+        Period periodStay = new Period(1,6);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal(2));
+        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal(3.5));
     }
 
     @Test
@@ -562,8 +562,8 @@ public class HallFrancisTestTask3 {
         normalP.add(periodA);
         reducedP.add(periodB);
         CarParkKind kind = CarParkKind.MANAGEMENT;
-        BigDecimal normal = new BigDecimal(2);
-        BigDecimal reduced = new BigDecimal(1);
+        BigDecimal normal = new BigDecimal(1);
+        BigDecimal reduced = new BigDecimal(0);
 
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(9,10);
@@ -586,7 +586,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(1,4);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal(8));
+        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal(6));
     }
 
 }
