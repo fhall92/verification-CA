@@ -99,6 +99,23 @@ public class Rate {
         double base = baseCost.doubleValue();
         BigDecimal finalCost = null;
 
+
+        //If Student
+       if(kind == CarParkKind.STUDENT) {
+            if(base <= 5.50) {
+                return baseCost;
+            }
+
+            else {
+                double temp ;
+                base = base - 5.50;
+                temp = (base / 4) ;
+                base = base - temp ;
+                base += 5.50 ;
+                return new BigDecimal(base) ;
+            }
+        }
+
         //If Visitor
         if(kind == CarParkKind.VISITOR) {
             //If baseCost is less than 8, Cost is free
@@ -129,25 +146,6 @@ public class Rate {
             }
         }
 
-        //If Student
-       else if(kind == CarParkKind.STUDENT) {
-            //If base cost is less than 5.50, Payment as normal
-            if (baseCost.floatValue() <= 5.50) {
-                finalCost = baseCost;
-                return finalCost;
-            }
-            //Else payment is discounted by 25%
-            else {
-
-                BigDecimal temp = new BigDecimal(4);
-                BigDecimal normalAmount = new BigDecimal(5.50);
-                BigDecimal reducedAmount = baseCost.subtract(normalAmount);
-                reducedAmount = reducedAmount.divide(temp);
-                finalCost = (reducedAmount.add(normalAmount));
-
-                return finalCost.abs();
-            }
-        }
 
         if(kind == CarParkKind.STAFF){
 

@@ -620,9 +620,31 @@ public class HallFrancisTestTask3 {
         BigDecimal reduced = new BigDecimal(0);
 
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
-        Period periodStay = new Period(1,3);
+        Period periodStay = new Period(1, 3);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal(5.50));
+        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("5.50"));
+    }
+
+    @Test
+    public void calculateStudentWithReduction() {
+        Period periodA = new Period(0, 7);
+        Period periodB = new Period(8, 12);
+        ArrayList<Period> normalP = new ArrayList<Period>();
+        ArrayList<Period> reducedP = new ArrayList<Period>();
+        normalP.add(periodA);
+        reducedP.add(periodB);
+        CarParkKind kind = CarParkKind.STUDENT;
+        BigDecimal normal = new BigDecimal(2);
+        BigDecimal reduced = new BigDecimal(1);
+
+        Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
+        Period periodStay = new Period(1, 5);
+
+        //base = 8
+        // 8 - 5 = 3
+        // 3 * .75 = 2.25
+        //2.25 + 5 =
+        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal(7.25));
     }
 
 }
