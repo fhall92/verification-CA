@@ -589,4 +589,43 @@ public class HallFrancisTestTask3 {
         assertEquals(testRate.calculate(periodStay, kind), new BigDecimal(6));
     }
 
+    @Test
+    public void calculateStudentBelowFiveFifty() {
+        Period periodA = new Period(0, 7);
+        Period periodB = new Period(8, 12);
+        ArrayList<Period> normalP = new ArrayList<Period>();
+        ArrayList<Period> reducedP = new ArrayList<Period>();
+        normalP.add(periodA);
+        reducedP.add(periodB);
+        CarParkKind kind = CarParkKind.STUDENT;
+        BigDecimal normal = new BigDecimal(1);
+        BigDecimal reduced = new BigDecimal(0);
+
+        Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
+        Period periodStay = new Period(1,4);
+
+        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal(3));
+    }
+
+    @Test
+    public void calculateStudentExactlyFiveFifty() {
+        Period periodA = new Period(0, 7);
+        Period periodB = new Period(8, 12);
+        ArrayList<Period> normalP = new ArrayList<Period>();
+        ArrayList<Period> reducedP = new ArrayList<Period>();
+        normalP.add(periodA);
+        reducedP.add(periodB);
+        CarParkKind kind = CarParkKind.STUDENT;
+        BigDecimal normal = new BigDecimal(2.75);
+        BigDecimal reduced = new BigDecimal(0);
+
+        Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
+        Period periodStay = new Period(1,3);
+        BigDecimal testValue = new BigDecimal(5.50);
+
+        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal(5.50));
+    }
+
+
+
 }
