@@ -116,16 +116,35 @@ public class Rate {
 
         //If Management
         else if(kind == CarParkKind.MANAGEMENT){
-
-            if (baseCost.doubleValue() <= 3){
+            //If base cost is less than 3, payment should be 3
+            if (base <= 3){
                 finalCost = new BigDecimal(3);
                 return finalCost;
             }
 
+            //Otherwise, require regular payment
             else{
                 finalCost = baseCost;
                 return finalCost;
             }
+        }
+
+        //If Student
+        if(kind == CarParkKind.STUDENT) {
+            //If base cost is less than 5.50, Payment as normal
+            if (base <= 5.5) {
+                finalCost = baseCost;
+                return finalCost;
+            }
+            //Else payment is discounted by 25%
+            else {
+                finalCost = new BigDecimal((base * 0.25));
+                return finalCost;
+            }
+        }
+
+        if(kind == CarParkKind.STAFF){
+
         }
 
     return finalCost;
