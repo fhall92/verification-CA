@@ -99,7 +99,6 @@ public class Rate {
         int reducedRateHours = periodStay.occurences(reduced);
         BigDecimal baseCost = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
-        double base = baseCost.doubleValue();
         BigDecimal finalCost = baseCost;
 
 
@@ -120,7 +119,7 @@ public class Rate {
 
         //If Staff
         if (kind == CarParkKind.STAFF) {
-            finalCost = new ManagementCalculation().calculation(baseCost);
+            finalCost = new StaffCalculation().calculation(baseCost);
 
         }
         return finalCost.setScale(2, BigDecimal.ROUND_HALF_EVEN);
