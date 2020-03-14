@@ -95,33 +95,12 @@ public class Rate {
     }
 
     public BigDecimal calculate(Period periodStay, CarParkKind kind) {
-        Calculation currentCalc = null;
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
         BigDecimal baseCost = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
-        BigDecimal finalCost = baseCost;
-
-
-        //If Student
-        if (kind == CarParkKind.STUDENT) {
-            currentCalc = new StudentCalculation();
-        }
-        //If Visitor
-        if (kind == CarParkKind.VISITOR) {
-            currentCalc = new VisitorCalculation();
-        }
-        //If Management
-        else if (kind == CarParkKind.MANAGEMENT) {
-            currentCalc = new ManagementCalculation();
-        }
-        //If Staff
-        if (kind == CarParkKind.STAFF) {
-            currentCalc = new StaffCalculation();
-
-        }
-
-        finalCost = currentCalc.calculation(baseCost);
+        Calculation currentCalc = new Calculation().calcType(kind);
+        BigDecimal finalCost = currentCalc.calculation(baseCost);
         return finalCost.setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
