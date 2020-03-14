@@ -2,7 +2,7 @@ package cm;
 
 import java.math.BigDecimal;
 
-class StaffCalculation extends Calculation{
+class StaffCalculation extends Calculation {
 
     BigDecimal calculation(BigDecimal baseCost) {
         BigDecimal maxPay = new BigDecimal(16);

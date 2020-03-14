@@ -2,9 +2,9 @@ package cm;
 
 import java.math.BigDecimal;
 
-class StudentCalculation extends Calculation{
+class StudentCalculation extends Calculation {
 
-    BigDecimal calculation(BigDecimal baseCost){
+    BigDecimal calculation(BigDecimal baseCost) {
         BigDecimal normalPayLimit = new BigDecimal("5.50");
         BigDecimal reduction = new BigDecimal("0.75");
         //If less than 5.50, return baseCost

@@ -2,9 +2,9 @@ package cm;
 
 import java.math.BigDecimal;
 
- class VisitorCalculation extends Calculation {
+class VisitorCalculation extends Calculation {
 
-    public BigDecimal calculation(BigDecimal baseCost){
+    public BigDecimal calculation(BigDecimal baseCost) {
         BigDecimal finalCost;
 
         //If baseCost < 8, final cost is free

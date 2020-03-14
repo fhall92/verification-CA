@@ -8,10 +8,10 @@ class Calculation {
         return baseCost;
     }
 
-    Calculation calcType(CarParkKind kind){
-        Calculation calcType = null;
+    Calculation calcType(CarParkKind kind) {
+        Calculation calcType;
 
-        switch(kind){
+        switch (kind) {
             case STUDENT:
                 calcType = new StudentCalculation();
                 break;
@@ -26,6 +26,10 @@ class Calculation {
 
             case MANAGEMENT:
                 calcType = new ManagementCalculation();
+                break;
+
+            default:
+                calcType = null;
                 break;
         }
 
