@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 class StaffCalculation extends Calculation{
 
-    BigDecimal calculate(BigDecimal baseCost) {
+    BigDecimal calculation(BigDecimal baseCost) {
         BigDecimal maxPay = new BigDecimal(16);
 
         //If base cost is less than 16, return base cost

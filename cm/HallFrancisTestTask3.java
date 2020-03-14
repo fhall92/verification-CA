@@ -695,6 +695,6 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(1, 7);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("60.00"));
+        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("16.00"));
     }
 }
