@@ -2,7 +2,7 @@ package cm;
 
 import java.math.BigDecimal;
 
-public class ManagementCalculation {
+public class ManagementCalculation extends Calculation{
 
     BigDecimal calculation(BigDecimal baseCost){
         //If base cost is less than 3, payment should be 3
