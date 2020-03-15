@@ -24,7 +24,7 @@ public class Rate {
         if (normalRate.compareTo(BigDecimal.ZERO) < 0 || reducedRate.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("A rate cannot be negative");
         }
-        if (normalRate.compareTo(reducedRate) <= 0) {
+        if (normalRate.compareTo(reducedRate) < 0) {
             throw new IllegalArgumentException("The normal rate cannot be less or equal to the reduced rate");
         }
         if (!isValidPeriods(reducedPeriods) || !isValidPeriods(normalPeriods)) {
@@ -94,16 +94,14 @@ public class Rate {
         return isValid;
     }
 
-    public BigDecimal calculate(Period periodStay, CarParkKind kind) {
+    public BigDecimal calculate(Period periodStay) {
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
-        BigDecimal baseCost = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
-                this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+        BigDecimal baseCost = (hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
 
         Calculation currentCalc = new Calculation().calcType(kind);
-        BigDecimal finalCost = currentCalc.calculation(baseCost);
-
-        return finalCost.setScale(2, BigDecimal.ROUND_HALF_EVEN);
+        return currentCalc.calculation(baseCost).setScale(2, BigDecimal.ROUND_HALF_EVEN);
     }
 
 }

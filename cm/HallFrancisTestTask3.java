@@ -244,7 +244,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(5, 10);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("23.88"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("23.88"));
     }
 
     @Test
@@ -262,7 +262,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(5, 10);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("16.38"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("16.38"));
     }
 
     @Test
@@ -280,7 +280,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(9, 16);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("12.62"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("12.62"));
     }
 
     @Test
@@ -298,7 +298,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(1, 4);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("23.88"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("23.88"));
     }
 
     @Test
@@ -316,7 +316,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(9, 11);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("8.88"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("8.88"));
     }
 
     @Test
@@ -334,7 +334,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(17, 21);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("0.00"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("0.00"));
     }
 
     @Test(expected = NullPointerException.class)
@@ -352,7 +352,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = null;
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal(15));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal(15));
     }
 
     //---------------------------------TASK TWO ADDITIONAL TESTS--------------------------------------------
@@ -515,7 +515,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(2, 4);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("0.00"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("0.00"));
     }
 
     @Test
@@ -533,7 +533,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(1, 6);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("3.50"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("3.50"));
     }
 
     @Test
@@ -551,7 +551,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(2, 5);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("0.00"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("0.00"));
     }
 
     @Test
@@ -569,7 +569,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(9, 10);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("3.00"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("3.00"));
     }
 
     @Test
@@ -587,7 +587,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(1, 4);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("6.00"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("6.00"));
     }
 
     @Test
@@ -605,7 +605,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(1, 4);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("3.00"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("3.00"));
     }
 
     @Test
@@ -623,7 +623,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(1, 3);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("5.50"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("5.50"));
     }
 
     @Test
@@ -641,7 +641,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(1, 6);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("16.38"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("16.38"));
     }
 
     @Test
@@ -659,7 +659,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(1, 4);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("9.00"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("9.00"));
     }
 
     @Test
@@ -677,7 +677,7 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(1, 5);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("16.00"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("16.00"));
     }
 
     @Test
@@ -695,6 +695,6 @@ public class HallFrancisTestTask3 {
         Rate testRate = new Rate(kind, normal, reduced, reducedP, normalP);
         Period periodStay = new Period(1, 7);
 
-        assertEquals(testRate.calculate(periodStay, kind), new BigDecimal("16.00"));
+        assertEquals(testRate.calculate(periodStay), new BigDecimal("16.00"));
     }
 }
