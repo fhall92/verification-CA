@@ -25,7 +25,7 @@ public class Rate {
             throw new IllegalArgumentException("A rate cannot be negative");
         }
         if (normalRate.compareTo(reducedRate) < 0) {
-            throw new IllegalArgumentException("The normal rate cannot be less or equal to the reduced rate");
+            throw new IllegalArgumentException("The normal rate cannot be less than the reduced rate");
         }
         if (!isValidPeriods(reducedPeriods) || !isValidPeriods(normalPeriods)) {
             throw new IllegalArgumentException("The periods are not valid individually");
